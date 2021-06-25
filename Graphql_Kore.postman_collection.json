@@ -28,7 +28,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "mutation {\r\n    createPrincipal(data: {username: \"bill\", last_modified_by: \"dean\"})\r\n}",
+						"query": "mutation {\r\n    createPrincipal(data: {username: \"christian\"})\r\n}",
 						"variables": ""
 					}
 				},
@@ -64,7 +64,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "mutation {\r\n    createOrg(data: {name: \"korrelated\", last_modified_by: \"dean\"})\r\n}",
+						"query": "mutation {\r\n    createOrg(data: {name: \"korrelated\"})\r\n}",
 						"variables": ""
 					}
 				},
@@ -100,7 +100,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "mutation {\r\n    updatePrincipal(data: {id: \"2\", display_name: \"bobbo\", username: \"bobbo\", primary_email: \"boooo@bob.com\", last_modified_by: \"don\"})\r\n}",
+						"query": "mutation {\r\n    updatePrincipal(data: {id: \"2\", display_name: \"bobbo\", username: \"bobbo\", primary_email: \"boooo@bob.com\"})\r\n}",
 						"variables": ""
 					}
 				},
@@ -136,7 +136,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "query {\r\n    getManyPrincipals(where: {username: \"bob\"}) {\r\n        id\r\n        username\r\n    }\r\n}",
+						"query": "query {\r\n    getManyPrincipals {\r\n        id\r\n        username\r\n    }\r\n}",
 						"variables": ""
 					}
 				},
@@ -280,7 +280,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "mutation {\r\n    updateOrg(data: {id: \"1\", last_modified_by: \"don\"})\r\n}",
+						"query": "mutation {\r\n    updateOrg(data: {id: \"1\", name: \"microsoft\"})\r\n}",
 						"variables": ""
 					}
 				},
