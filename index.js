@@ -30,9 +30,17 @@ getManyPrincipals {
 }`);
 
 // Set up a subscription query
-const subquery = gql(`
+const onCreateQ = gql(`
 subscription NewPrincipalSub {
-onCreatePrincipal
+onCreatePrincipal {
+    id
+    username
+}
+}`);
+
+const onDeleteQ = gql(`
+subscription DeletePrincipalSub {
+onDeletePrincipal
 }`);
 
 // Set up Apollo client
@@ -51,19 +59,31 @@ client.hydrated().then(function (client) {
     //client.query({ query: query })
     client.query({ query: query, fetchPolicy: 'network-only' })   //Uncomment for AWS Lambda
         .then(function logData(data) {
-            console.log('results of query: ', data);
+            console.log('results of query: ', data.getManyPrincipals);
         })
         .catch(console.error);
 
     //Now subscribe to results
-    const observable = client.subscribe({ query: subquery });
+    const onCreate = client.subscribe({ query: onCreateQ });
 
-    const realtimeResults = function realtimeResults(data) {
+    const createResults = function createResults(data) {
         console.log('realtime data: ', data);
     };
 
-    observable.subscribe({
-        next: realtimeResults,
+    onCreate.subscribe({
+        next: createResults,
+        complete: console.log,
+        error: console.log,
+    });
+
+    const onDelete = client.subscribe({ query: onDeleteQ });
+
+    const deleteResults = function deleteResults(data) {
+        console.log('realtime data: ', data);
+    };
+
+    onDelete.subscribe({
+        next: deleteResults,
         complete: console.log,
         error: console.log,
     });

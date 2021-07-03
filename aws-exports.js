@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var config = {
     REGION: 'us-west-2',
-    ENDPOINT: 'https://pfu6wr6ae5cjxiwwqg4qb5okeu.appsync-api.us-west-2.amazonaws.com/graphql',
-    API_KEY: 'da2-yq2d5cmfnrdudpihc76eg5sllm'
+    ENDPOINT: 'https://cvndrfwz4bfvhenrzn5ck2y32y.appsync-api.us-west-2.amazonaws.com/graphql',
+    API_KEY: 'da2-nnvrbemhb5eytkswhjojhcgqua'
 };
 exports.default = config;
